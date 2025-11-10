@@ -1,0 +1,8 @@
+{% load static %} {% if latest_products %}
+<div>
+  {% for product in latest_products %}
+  <div>
+    <h2>{{product.name}}</h2>
+  </div>
+  {% endfor %}
+</div>
