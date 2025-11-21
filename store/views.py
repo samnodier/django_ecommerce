@@ -5,7 +5,9 @@ from .models import Product
 
 
 def index(request):
-    return HttpResponse({"message": "Welcome to the homepage"})  # type: ignore
+    products = Product.objects.order_by("updated_at")[:5]
+    context = {"featured_products": products}
+    return render(request, "store/index.html", context)  # type: ignore
 
 
 def products(request):
