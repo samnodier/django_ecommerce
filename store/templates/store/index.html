@@ -13,9 +13,30 @@
     {% tailwind_css %}
 </head>
 
-<body class="bg-gray-50 text-black font-serif leading-normal tracking-normal">
+<body class="bg-gray-50 text-black leading-normal tracking-normal font-[Geist]">
+    <header class="flex items-center justify-between px-5">
+      <h1 class="text-4xl font-bold">PeakStore</h1>
+      <nav class="container mx-auto px-6 py-4">
+        <ul class="flex items-center justify-center space-x-1">
+          <li><a href="">Home</a></li>
+          <li><a href="">Featured</a></li>
+          <li><a href="">Categories</a></li>
+          <li><a href="">Shop All</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="flex items-center space-x-5">
+        <button class="text-gray-600 hover:text-blue-600">
+          <span>Search</span>
+        </button>
+        <a href="/login" class="">
+          Login
+        </a>
+        <a href="/cart" class="">Cart</a>
+      </div>
+    </header>
   <div class="container mx-auto">
-      <section class="flex items-center justify-center h-screen">
+    <section class="flex items-center justify-center h-screen">
           <h1 class="text-5xl">Django + Tailwind = ❤️</h1>
 
     {% load static %} {% if featured_products %}
