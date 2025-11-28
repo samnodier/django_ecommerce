@@ -120,6 +120,48 @@
                     </div>
                 </div>
             </div>
+            <!-- Search Bar -->
+            <div id="search-container"
+                 class="absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg hidden overflow-hidden transition-all duration-300">
+                <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
+                    <form action="/search" class="relative">
+                        <input type="text"
+                               id="search-input"
+                               placeholder="Search for products..."
+                               class="w-full text-xl md:text-2xl font-medium text-gray-900 placeholder-gray-400 border-none focus:ring-0 focus:outline-none bg-transparent pb-2 border-b-2 border-gray-100 focus:border-black transition-colors">
+                        <button type="submit"
+                                class="absolute right-0 top-0 text-gray-400 hover:text-black transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </button>
+                        <!-- Quick links -->
+                        <div class="mt-4 text-sm text-gray-500">
+                            <span class="mr-2">Popular:</span>
+                            <a href="#" class="underline hover:text-black mr-2">Jackets</a>
+                            <a href="#" class="underline hover:text-black mr-2">Backpacks</a>
+                            <a href="#" class="underline hover:text-black">Shirts</a>
+                        </div>
+                    </form>
+                    <!-- Close button -->
+                    <button onclick="toggleSearch()"
+                            class="absolute top-4 right-4 text-gray-400 hover:text-black md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
             <div class="flex w-full px-5">
                 <nav class="container mx-auto px-6 py-4">
                     <ul class="flex items-center justify-center space-x-1">
@@ -142,20 +184,25 @@
                 </nav>
             </div>
         </header>
-        <div class="container mx-auto">
-            <section class="flex items-center justify-center h-screen">
-                <h1 class="text-5xl">Django + Tailwind = ❤️</h1>
-                {% load static %}
-                {% if featured_products %}
-                    <div>
-                        {% for product in featured_products %}
-                            <div>
-                                <h2>{{ product.name }} s</h2>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </section>
-        </div>
+        <main>
+            <div class="container mx-auto">
+                <section class="flex items-center justify-center h-screen">
+                    <h1 class="text-5xl">Django + Tailwind = ❤️</h1>
+                    {% load static %}
+                    {% if featured_products %}
+                        <div>
+                            {% for product in featured_products %}
+                                <div>
+                                    <h2>{{ product.name }} s</h2>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </section>
+            </div>
+        </main>
+        {% block scripts %}
+            <script src="{% static 'store/js/header.js' %}"></script>
+        {% endblock %}
     </body>
 </html>

@@ -11,3 +11,4 @@ sqlparse==0.5.3
 types-psycopg2==2.9.21.20251012
 types-PyYAML==6.0.12.20250915
 typing_extensions==4.15.0
+'django-tailwind[cookiecutter,honcho,reload]'
