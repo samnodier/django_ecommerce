@@ -16,15 +16,15 @@
         <header class="flex w-full flex-col items-center justify-between">
             <div class="flex w-full bg-black text-white px-5">
                 <div class = "relative h-10 overflow-hidden flex-1">
-                    <ul class="relative h-full">
-                        <li class="absolute flex items-center justify-center w-full opacity-0 animate-slide-in [animation-delay:0s] leading-none">
-                            Pay within 30 days with <strong>Kalrna</strong>
+                    <ul class="relative h-full w-full">
+                        <li class="absolute top-0 left-0 flex items-center justify-left h-full w-full opacity-0 animate-slide-in [animation-delay:0s]">
+                            Pay within 30 days with<strong class="ml-1">Kalrna</strong>
                         </li>
-                        <li class="absolute flex items-center justify-center w-full opacity-0 animate-slide-in [animation-delay:5s] leading-none">
-                            Not satisfied? <strong>Money Back</strong>
+                        <li class="absolute top-0 left-0 flex items-center justify-left h-full w-full opacity-0 animate-slide-in [animation-delay:5s]">
+                            Not satisfied?<strong class="ml-1">Money Back</strong>
                         </li>
-                        <li class="absolute flex items-center justify-center w-full opacity-0 animate-slide-in [animation-delay:10s] leading-none">
-                            <strong>30 day</strong> trial
+                        <li class="absolute top-0 left-0 flex items-center justify-left h-full w-full opacity-0 animate-slide-in [animation-delay:10s]">
+                            <strong class="mr-1">30 day</strong>trial
                         </li>
                     </ul>
                 </div>
@@ -32,8 +32,95 @@
                     <p>Sustainability commitments 🌱</p>
                 </div>
             </div>
-            <div>
-                <h1 class="text-4xl font-bold">PeakStore</h1>
+            <div class="flex w-full px-5 py-2 justify-between">
+                <div>
+                    <h1 class="text-4xl font-bold">PeakStore</h1>
+                </div>
+                <div class="flex items-center space-x-5">
+                    <!-- Search -->
+                    <div class="flex lg:ml-6">
+                        <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
+                            <span class="sr-only">Search</span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Switch currency -->
+                    <div class="relative group">
+                        <button class="flex items-center text-sm font-semibold focus:outline-none hover:text-gray-300 transition-colors">
+                            <span>🇬🇧 GBP £</span>
+                            <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <!-- Invisible buffer bridge to prevent menu closing when moving mouse from button to menu -->
+                        <div class="absolute right-0 top-full h-2 w-full"></div>
+                        <!-- Actual Menu -->
+                        <ul class="absolute right-0 top-[calc(100%+0.5rem)] w-32 bg-white text-black rounded shadow-lg overflow-hidden transform scale-95 opacity-0 invisible group-hover:scale-100 group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-right z-50">
+                            <li>
+                                <a href="#"
+                                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between">
+                                    <span>🇺🇸 USD</span>
+                                    <span class="text-gray-400">$</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between">
+                                    <span>🇪🇺 EUR</span>
+                                    <span class="text-gray-400">€</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between font-bold bg-gray-50">
+                                    <span>🇬🇧 GBP</span>
+                                    <span class="text-gray-400">£</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Login -->
+                    <div class="flex items-center justify-center">
+                        <a href="/login" class="">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Cart -->
+                    <div class="">
+                        <a href="/cart" class="group -m-2 flex items-center p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                            </svg>
+                            <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                            <span class="sr-only">items in cart, view bag</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex w-full px-5">
                 <nav class="container mx-auto px-6 py-4">
                     <ul class="flex items-center justify-center space-x-1">
                         <li>
@@ -53,13 +140,6 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="flex items-center space-x-5">
-                    <button class="text-gray-600 hover:text-blue-600">
-                        <span>Search</span>
-                    </button>
-                    <a href="/login" class="">Login</a>
-                    <a href="/cart" class="">Cart</a>
-                </div>
             </div>
         </header>
         <div class="container mx-auto">

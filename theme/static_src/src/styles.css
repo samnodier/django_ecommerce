@@ -10,20 +10,24 @@
 @source "../../../**/*.{html,py,js}";
 
 @theme {
-  --animate-slide-in: slide-in 5s ease-in-out infinite;
+  --animate-slide-in: slide-in 15s linear infinite;
 
   @keyframes slide-in {
     0% {
       opacity: 0;
       transform: translateX(100%);
     }
-    20% {
+    5% {
       opacity: 1;
       transform: translateX(0);
     }
-    80% {
+    30% {
       opacity: 1;
       transform: translateX(0);
+    }
+    35% {
+      opacity: 0;
+      transform: translateX(-100%);
     }
     100% {
       opacity: 0;
