@@ -13,7 +13,7 @@
         {% load static %}
         <link rel="shortcut icon"
               type="image/png"
-              href="{% static 'img/favicon.png' %}">
+              href="{% static 'store/favicon.png' %}">
         {% tailwind_css %}
     </head>
     <body class="bg-gray-50 text-black leading-normal tracking-normal font-[Geist]">
@@ -36,7 +36,7 @@
                     <p>Sustainability commitments 🌱</p>
                 </div>
             </div>
-            <div class="flex w-full px-5 py-2 justify-between border-b-red-400">
+            <div class="flex w-full px-5 py-2 justify-between border-b-2 border-gray-200">
                 <div>
                     <h1 class="text-4xl font-bold">PeakStore</h1>
                 </div>
@@ -166,8 +166,24 @@
                     </button>
                 </div>
             </div>
-            <div class="flex w-full px-5">
-                <nav class="w-full">
+            <div class="flex w-full px-5 py-2 border-b-2 border-gray-200">
+                <nav aria-label="Top" class="w-full">
+                    <el-popover-group class="group/popover-group hidden lg:block lg:self-stretch">
+                    <div class="flex space-x-8">
+                        <div class="group-popover flex">
+                            <div class="relative flex">
+                                <button popovertarget="desktop-menu-looks"
+                                        class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
+                                    Looks
+                                    <span aria-hidden="true"
+                                          class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
+                                </button>
+                            </div>
+                            <el-popover id="desktop-menu-looks" anchor="bottom" popover class="w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap-1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
+                            </el-popover>
+                        </div>
+                    </div>
+                    </el-popover-group>
                     <ul class="flex items-center justify-left space-x-5 w-full font-semibold">
                         <li>
                             <a href="">Home</a>
