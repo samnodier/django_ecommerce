@@ -8,7 +8,6 @@
     --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-    --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-indigo-600: oklch(51.1% 0.262 276.966);
     --color-gray-50: oklch(98.5% 0.002 247.839);
@@ -28,8 +27,6 @@
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
-    --text-lg: 1.125rem;
-    --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
@@ -240,6 +237,18 @@
   .top-4 {
     top: calc(var(--spacing) * 4);
   }
+  .top-9 {
+    top: calc(var(--spacing) * 9);
+  }
+  .top-19 {
+    top: calc(var(--spacing) * 19);
+  }
+  .top-20 {
+    top: calc(var(--spacing) * 20);
+  }
+  .top-40 {
+    top: calc(var(--spacing) * 40);
+  }
   .top-\[calc\(100\%\+0\.5rem\)\] {
     top: calc(100% + 0.5rem);
   }
@@ -269,6 +278,9 @@
   }
   .col-start-2 {
     grid-column-start: 2;
+  }
+  .row-start-1 {
+    grid-row-start: 1;
   }
   .container {
     width: 100%;
@@ -343,8 +355,14 @@
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
+  .h-9 {
+    height: calc(var(--spacing) * 9);
+  }
   .h-10 {
     height: calc(var(--spacing) * 10);
+  }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
   }
   .h-full {
     height: 100%;
@@ -397,8 +415,22 @@
   .justify-center {
     justify-content: center;
   }
+  .space-y-6 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
   .gap-x-8 {
     column-gap: calc(var(--spacing) * 8);
+  }
+  .space-x-4 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
+    }
   }
   .space-x-5 {
     :where(& > :not(:last-child)) {
@@ -608,6 +640,9 @@
     --tw-ease: var(--ease-out);
     transition-timing-function: var(--ease-out);
   }
+  .\[--anchor-gap\:1px\] {
+    --anchor-gap: 1px;
+  }
   .\[animation-delay\:0s\] {
     animation-delay: 0s;
   }
@@ -727,6 +762,13 @@
       }
     }
   }
+  .hover\:text-gray-800 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gray-800);
+      }
+    }
+  }
   .group-not-has-open\/popover\:hover\:text-gray-800 {
     &:is(:where(.group\/popover):not(*:has(*:is([open], :popover-open, :open))) *) {
       &:hover {
@@ -782,6 +824,20 @@
       transition-timing-function: var(--ease-in);
     }
   }
+  .sm\:mt-4 {
+    @media (width >= 40rem) {
+      margin-top: calc(var(--spacing) * 4);
+    }
+  }
+  .sm\:space-y-4 {
+    @media (width >= 40rem) {
+      :where(& > :not(:last-child)) {
+        --tw-space-y-reverse: 0;
+        margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+        margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+      }
+    }
+  }
   .sm\:px-6 {
     @media (width >= 40rem) {
       padding-inline: calc(var(--spacing) * 6);
@@ -814,6 +870,11 @@
       margin-left: calc(var(--spacing) * 6);
     }
   }
+  .lg\:ml-8 {
+    @media (width >= 64rem) {
+      margin-left: calc(var(--spacing) * 8);
+    }
+  }
   .lg\:block {
     @media (width >= 64rem) {
       display: block;
@@ -822,6 +883,11 @@
   .lg\:self-stretch {
     @media (width >= 64rem) {
       align-self: stretch;
+    }
+  }
+  .lg\:px-4 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 4);
     }
   }
   .lg\:px-8 {
@@ -864,6 +930,11 @@
 @property --tw-skew-y {
   syntax: "*";
   inherits: false;
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
 }
 @property --tw-space-x-reverse {
   syntax: "*";
@@ -993,6 +1064,7 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
       --tw-border-style: solid;
       --tw-leading: initial;

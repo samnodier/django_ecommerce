@@ -17,8 +17,8 @@
         {% tailwind_css %}
     </head>
     <body class="bg-gray-50 text-black leading-normal tracking-normal font-[Geist]">
-        <header class="relative flex w-full flex-col items-center justify-between">
-            <div class="flex w-full bg-black text-white px-5">
+        <header class="relative">
+            <div class="flex mx-auto w-full bg-black text-white px-5">
                 <div class = "relative h-10 overflow-hidden flex-1">
                     <ul class="relative h-full w-full">
                         <li class="absolute top-0 left-0 flex items-center justify-left h-full w-full opacity-0 animate-slide-in [animation-delay:0s]">
@@ -36,213 +36,458 @@
                     <p>Sustainability commitments 🌱</p>
                 </div>
             </div>
-            <div class="flex w-full px-5 py-2 justify-between border-b-2 border-gray-200">
-                <div>
-                    <h1 class="text-4xl font-bold">PeakStore</h1>
-                </div>
-                <div class="flex items-center space-x-5">
-                    <!-- Search -->
-                    <div class="flex lg:ml-6">
-                        <button id="search-toggle" class="p-2 text-gray-400 hover:text-gray-500">
-                            <span class="sr-only">Search</span>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                            </svg>
-                        </button>
+            <nav aria-label="Top" class="mx-auto max-w-7xl py-2">
+                <div class="flex w-full py-2 px-4 sm:px-6 lg:px-8 justify-between border-b-2 border-gray-200">
+                    <div>
+                        <h1 class="text-4xl font-bold">PeakStore</h1>
                     </div>
-                    <!-- Switch currency -->
-                    <div class="relative group">
-                        <button class="flex items-center text-sm font-semibold focus:outline-none hover:text-gray-300 transition-colors">
-                            <span>🇬🇧 GBP £</span>
-                            <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown Menu -->
-                        <!-- Invisible buffer bridge to prevent menu closing when moving mouse from button to menu -->
-                        <div class="absolute right-0 top-full h-2 w-full"></div>
-                        <!-- Actual Menu -->
-                        <ul class="absolute right-0 top-[calc(100%+0.5rem)] w-32 bg-white text-black rounded shadow-lg overflow-hidden transform scale-95 opacity-0 invisible group-hover:scale-100 group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-right z-50">
-                            <li>
-                                <a href="#"
-                                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between">
-                                    <span>🇺🇸 USD</span>
-                                    <span class="text-gray-400">$</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between">
-                                    <span>🇪🇺 EUR</span>
-                                    <span class="text-gray-400">€</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between font-bold bg-gray-50">
-                                    <span>🇬🇧 GBP</span>
-                                    <span class="text-gray-400">£</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Login -->
-                    <div class="flex items-center justify-center">
-                        <a href="/login" class="">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                            </svg>
-                        </a>
-                    </div>
-                    <!-- Cart -->
-                    <div class="">
-                        <a href="/cart" class="group -m-2 flex items-center p-2">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                            </svg>
-                            <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                            <span class="sr-only">items in cart, view bag</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Search Bar -->
-            <div id="search-container"
-                 class="absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg hidden overflow-hidden transition-all duration-300">
-                <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
-                    <form action="/search" class="relative">
-                        <input type="text"
-                               id="search-input"
-                               placeholder="Search for products..."
-                               class="w-full text-xl md:text-2xl font-medium text-gray-900 placeholder-gray-400 border-none focus:ring-0 focus:outline-none bg-transparent pb-2 border-b-2 border-gray-100 focus:border-black transition-colors">
-                        <button type="submit"
-                                class="absolute right-0 top-0 text-gray-400 hover:text-black transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                            </svg>
-                        </button>
-                        <!-- Quick links -->
-                        <div class="mt-4 text-sm text-gray-500">
-                            <span class="mr-2">Popular:</span>
-                            <a href="#" class="underline hover:text-black mr-2">Jackets</a>
-                            <a href="#" class="underline hover:text-black mr-2">Backpacks</a>
-                            <a href="#" class="underline hover:text-black">Shirts</a>
+                    <div class="flex items-center space-x-5">
+                        <!-- Search -->
+                        <div class="flex lg:ml-6">
+                            <button id="search-toggle" class="p-2 text-gray-400 hover:text-gray-500">
+                                <span class="sr-only">Search</span>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     fill="none"
+                                     viewBox="0 0 24 24"
+                                     stroke-width="1.5"
+                                     stroke="currentColor"
+                                     class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                </svg>
+                            </button>
                         </div>
-                    </form>
-                    <!-- Close button -->
-                    <button onclick="toggleSearch()"
-                            class="absolute top-4 right-4 text-gray-400 hover:text-black md:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke-width="1.5"
-                             stroke="currentColor"
-                             class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+                        <!-- Switch currency -->
+                        <div class="relative group">
+                            <button class="flex items-center text-sm font-semibold focus:outline-none hover:text-gray-300 transition-colors">
+                                <span>🇬🇧 GBP £</span>
+                                <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <!-- Invisible buffer bridge to prevent menu closing when moving mouse from button to menu -->
+                            <div class="absolute right-0 top-full h-2 w-full"></div>
+                            <!-- Actual Menu -->
+                            <ul class="absolute right-0 top-[calc(100%+0.5rem)] w-32 bg-white text-black rounded shadow-lg overflow-hidden transform scale-95 opacity-0 invisible group-hover:scale-100 group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-right z-50">
+                                <li>
+                                    <a href="#"
+                                       class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between">
+                                        <span>🇺🇸 USD</span>
+                                        <span class="text-gray-400">$</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                       class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between">
+                                        <span>🇪🇺 EUR</span>
+                                        <span class="text-gray-400">€</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                       class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between font-bold bg-gray-50">
+                                        <span>🇬🇧 GBP</span>
+                                        <span class="text-gray-400">£</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Login -->
+                        <div class="flex items-center justify-center">
+                            <a href="/login" class="">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     fill="none"
+                                     viewBox="0 0 24 24"
+                                     stroke-width="1.5"
+                                     stroke="currentColor"
+                                     class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- Cart -->
+                        <div class="">
+                            <a href="/cart" class="group -m-2 flex items-center p-2">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     fill="none"
+                                     viewBox="0 0 24 24"
+                                     stroke-width="1.5"
+                                     stroke="currentColor"
+                                     class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                </svg>
+                                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                                <span class="sr-only">items in cart, view bag</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="flex w-full px-5 py-2 border-b-2 border-gray-200">
-                <nav aria-label="Top" class="w-full">
-                    <el-popover-group class="group/popover-group hidden lg:block lg:self-stretch">
-                    <div class="flex space-x-8">
-                        <div class="group-popover flex">
-                            <div class="relative flex">
-                                <button popovertarget="desktop-menu-looks"
-                                        class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
-                                    Looks
-                                    <span aria-hidden="true"
-                                          class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
-                                </button>
+                <!-- Search Bar -->
+                <div id="search-container"
+                     class="absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg hidden overflow-hidden transition-all duration-300">
+                    <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
+                        <form action="/search" class="relative">
+                            <input type="text"
+                                   id="search-input"
+                                   placeholder="Search for products..."
+                                   class="w-full text-xl md:text-2xl font-medium text-gray-900 placeholder-gray-400 border-none focus:ring-0 focus:outline-none bg-transparent pb-2 border-b-2 border-gray-100 focus:border-black transition-colors">
+                            <button type="submit"
+                                    class="absolute right-0 top-0 text-gray-400 hover:text-black transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     fill="none"
+                                     viewBox="0 0 24 24"
+                                     stroke-width="1.5"
+                                     stroke="currentColor"
+                                     class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                </svg>
+                            </button>
+                            <!-- Quick links -->
+                            <div class="mt-4 text-sm text-gray-500">
+                                <span class="mr-2">Popular:</span>
+                                <a href="#" class="underline hover:text-black mr-2">Jackets</a>
+                                <a href="#" class="underline hover:text-black mr-2">Backpacks</a>
+                                <a href="#" class="underline hover:text-black">Shirts</a>
                             </div>
-                            <el-popover id="desktop-menu-looks" anchor="bottom" popover class="w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap-1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
-                            <div aria-hidden="true"
-                                 class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
-                            <div class="relative bg-white">
-                                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                    <div class="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
-                                        <div class="col-start-2 grid grid-cols-2 gap-x-8">
-                                            <div class="group relative text-base sm:text-sm">
-                                                <img src=""
-                                                     alt=""
-                                                     class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
-                                                <a href="" class="mt-6 block font-medium text-gray-900">
-                                                    <span aria-hidden="true" class="absolute inset-0 z-10"></span>
-                                                    Dancer
-                                                </a>
-                                                <p aria-hidden="true" class="mt-1">Shop Now</p>
+                        </form>
+                        <!-- Close button -->
+                        <button onclick="toggleSearch()"
+                                class="absolute top-4 right-4 text-gray-400 hover:text-black md:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="py-2 px-4 sm:px-6 lg:px-8 border-b-2 border-gray-200">
+                    <div class="flex h-9 items-center">
+                        <el-popover-group class="group/popover-group hidden lg:block lg:self-stretch">
+                        <div class="flex h-full space-x-4">
+                            <div class="group/popover flex">
+                                <div class="relative flex">
+                                    <button popovertarget="desktop-menu-looks"
+                                            class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
+                                        Looks
+                                        <span aria-hidden="true"
+                                              class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
+                                    </button>
+                                </div>
+                                <el-popover id="desktop-menu-looks" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
+                                <div aria-hidden="true"
+                                     class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
+                                <div class="relative bg-white">
+                                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                                        <div class="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
+                                            <div class="col-start-2 grid grid-cols-2 gap-x-8">
+                                                <div class="group relative text-base sm:text-sm">
+                                                    <img src=""
+                                                         alt=""
+                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                    <a href="" class="mt-6 block font-medium text-gray-900">
+                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                        Dancer
+                                                    </a>
+                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                                </div>
+                                                <div class="group relative text-base sm:text-sm">
+                                                    <img src=""
+                                                         alt=""
+                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                    <a href="" class="mt-6 block font-medium text-gray-900">
+                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                        Dancer
+                                                    </a>
+                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                                </div>
                                             </div>
-                                            <div class="group relative text-base sm:text-sm">
-                                                <img src=""
-                                                     alt=""
-                                                     class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
-                                                <a href="" class="mt-6 block font-medium text-gray-900">
-                                                    <span aria-hidden="true" class="absolute inset-0 z-10"></span>
-                                                    Dancer
-                                                </a>
-                                                <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                            <div class="row-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm">
+                                                <div>
+                                                    <ul role="list"
+                                                        aria-labelledby="Looks"
+                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Festival Look</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Wedding Guest</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Feeling Green</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Summer Proof</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Weeding Night</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <ul role="list"
+                                                        aria-labelledby="Looks"
+                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Travel Chique</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="group relative text-base sm:text-sm">
-                                                <img src=""
-                                                     alt=""
-                                                     class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
-                                                <a href="" class="mt-6 block font-medium text-gray-900">
-                                                    <span aria-hidden="true" class="absolute inset-0 z-10"></span>
-                                                    Dancer
-                                                </a>
-                                                <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </el-popover>
+                            </div>
+                            <div class="group/popover flex">
+                                <div class="relative flex">
+                                    <button popovertarget="desktop-menu-newarrivals"
+                                            class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
+                                        New Arrivals
+                                        <span aria-hidden="true"
+                                              class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
+                                    </button>
+                                </div>
+                                <el-popover id="desktop-menu-newarrivals" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
+                                <div aria-hidden="true"
+                                     class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
+                                <div class="relative bg-white">
+                                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                                        <div class="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
+                                            <div class="col-start-2 grid grid-cols-2 gap-x-8">
+                                                <div class="group relative text-base sm:text-sm">
+                                                    <img src=""
+                                                         alt=""
+                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                    <a href="" class="mt-6 block font-medium text-gray-900">
+                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                        Dancer
+                                                    </a>
+                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                                </div>
+                                                <div class="group relative text-base sm:text-sm">
+                                                    <img src=""
+                                                         alt=""
+                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                    <a href="" class="mt-6 block font-medium text-gray-900">
+                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                        Dancer
+                                                    </a>
+                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                                </div>
+                                            </div>
+                                            <div class="row-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm">
+                                                <div>
+                                                    <ul role="list"
+                                                        aria-labelledby="Looks"
+                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Festival Look</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Wedding Guest</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Feeling Green</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Summer Proof</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Weeding Night</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <ul role="list"
+                                                        aria-labelledby="Looks"
+                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Travel Chique</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            </el-popover>
+                            <div class="group/popover flex">
+                                <div class="relative flex">
+                                    <button popovertarget="desktop-menu-shop"
+                                            class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
+                                        Shop
+                                        <span aria-hidden="true"
+                                              class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
+                                    </button>
+                                </div>
+                                <el-popover id="desktop-menu-shop" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
+                                <div aria-hidden="true"
+                                     class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
+                                <div class="relative bg-white">
+                                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                                        <div class="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
+                                            <div class="col-start-2 grid grid-cols-2 gap-x-8">
+                                                <div class="group relative text-base sm:text-sm">
+                                                    <img src=""
+                                                         alt=""
+                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                    <a href="" class="mt-6 block font-medium text-gray-900">
+                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                        Dancer
+                                                    </a>
+                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                                </div>
+                                                <div class="group relative text-base sm:text-sm">
+                                                    <img src=""
+                                                         alt=""
+                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                    <a href="" class="mt-6 block font-medium text-gray-900">
+                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                        Dancer
+                                                    </a>
+                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                                </div>
+                                            </div>
+                                            <div class="row-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm">
+                                                <div>
+                                                    <ul role="list"
+                                                        aria-labelledby="Looks"
+                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Festival Look</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Wedding Guest</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Feeling Green</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Summer Proof</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Weeding Night</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <ul role="list"
+                                                        aria-labelledby="Looks"
+                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Travel Chique</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </el-popover>
+                            </div>
+                            <div class="group/popover flex">
+                                <div class="relative flex">
+                                    <button popovertarget="desktop-menu-sale"
+                                            class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
+                                        Sale
+                                        <span aria-hidden="true"
+                                              class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
+                                    </button>
+                                </div>
+                                <el-popover id="desktop-menu-sale" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
+                                <div aria-hidden="true"
+                                     class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
+                                <div class="relative bg-white">
+                                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                                        <div class="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
+                                            <div class="col-start-2 grid grid-cols-2 gap-x-8">
+                                                <div class="group relative text-base sm:text-sm">
+                                                    <img src=""
+                                                         alt=""
+                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                    <a href="" class="mt-6 block font-medium text-gray-900">
+                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                        Dancer
+                                                    </a>
+                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                                </div>
+                                                <div class="group relative text-base sm:text-sm">
+                                                    <img src=""
+                                                         alt=""
+                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                    <a href="" class="mt-6 block font-medium text-gray-900">
+                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                        Dancer
+                                                    </a>
+                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                                </div>
+                                            </div>
+                                            <div class="row-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm">
+                                                <div>
+                                                    <ul role="list"
+                                                        aria-labelledby="Looks"
+                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Festival Look</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Wedding Guest</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Feeling Green</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Summer Proof</a>
+                                                        </li>
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Weeding Night</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <ul role="list"
+                                                        aria-labelledby="Looks"
+                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                        <li class="flex">
+                                                            <a href="#" class="hover:text-gray-800">Travel Chique</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </el-popover>
+                            </div>
+                            <a href="#" class="flex items-center font-medium text-black">About Us</a>
+                            <a href="#" class="flex items-center font-medium text-black">Stories</a>
+                            <a href="#" class="flex items-center font-medium text-black">Events</a>
+                            <a href="#" class="flex items-center font-medium text-black">Campaigns</a>
+                            <a href="#" class="flex items-center font-medium text-black">Contact</a>
                         </div>
+                        </el-popover-group>
                     </div>
-                    </el-popover-group>
-                    <ul class="flex items-center justify-left space-x-5 w-full font-semibold">
-                        <li>
-                            <a href="">Home</a>
-                        </li>
-                        <li>
-                            <a href="">Featured</a>
-                        </li>
-                        <li>
-                            <a href="">Categories</a>
-                        </li>
-                        <li>
-                            <a href="">Shop All</a>
-                        </li>
-                        <li>
-                            <a href="">Contact</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </header>
         <main>
             <div class="container mx-auto">
