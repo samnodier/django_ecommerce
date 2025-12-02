@@ -2,6 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchButton = document.querySelector("#search-toggle");
   if (!searchButton) return;
   searchButton.addEventListener("click", toggleSearch);
+
+  // Scroll functionality (one item at a time)
+  const scrollContainer = document.getElementById("category-scroll");
+  const leftScrollBtn = document.getElementById("category-scroll-left");
+  const rightScrollBtn = document.getElementById("category-scroll-right");
+
+  const scrollAmount = 130; // approximately one item;
+
+  leftScrollBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+
+  rightScrollBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
 });
 
 document.addEventListener("click", (event) => {
@@ -18,7 +33,6 @@ document.addEventListener("click", (event) => {
 });
 
 function toggleSearch() {
-  console.log("working");
   const searchContainer = document.getElementById("search-container");
   const searchInput = document.getElementById("search-input");
 
