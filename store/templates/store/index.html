@@ -17,6 +17,37 @@
         {% tailwind_css %}
     </head>
     <body class="bg-gray-50 text-black leading-normal tracking-normal font-[Geist]">
+        <el-dialog>
+        <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
+            <el-dialog-backdrop class="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-closed:opacity-0"></el-dialog-backdrop>
+            <div tabindex="0" class="fixed inset-0 flex focus:ouline-none">
+                <el-dialog-panel class="relative flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-closed:-translate-x-full">
+                <div class="flex px-4 pt-5 pb-2">
+                    <button type="button"
+                            command="close"
+                            commandfor="mobile-menu"
+                            class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Close menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- Links -->
+                <el-menu default-active="1" default-openeds={['1']} class="border-none mobile-menu" :collapse="false">
+                <el-menu-item index="1">
+                <a href="#" class="flex items-center font-medium text-black">Home</a>
+                </el-menu-item>
+                </el-menu>
+            </div>
+        </dialog>
+        </el-dialog>
         <header class="relative">
             <div class="flex mx-auto w-full bg-black text-white px-5">
                 <div class = "relative h-10 overflow-hidden flex-1">
@@ -38,8 +69,25 @@
             </div>
             <nav aria-label="Top" class="mx-auto max-w-7xl py-2">
                 <div class="flex w-full py-2 px-4 sm:px-6 lg:px-8 justify-between border-b-2 border-gray-200">
-                    <div>
-                        <h1 class="text-4xl font-bold">PeakStore</h1>
+                    <div class="flex items-center justify-center">
+                        <button type="button"
+                                command="show-modal"
+                                commandfor="mobile-menu"
+                                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 lg:hidden">
+                            <span class="absolute -inset-0.5"></span>
+                            <span class="sr-only">Open menu</span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                        </button>
+                        <div>
+                            <h1 class="text-2xl font-bold">PeakStore</h1>
+                        </div>
                     </div>
                     <div class="flex items-center space-x-5">
                         <!-- Search -->
@@ -279,14 +327,14 @@
                                      class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
                                 <div class="relative bg-white">
                                     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                        <div class="flex flex-col py-16">
+                                        <div class="flex flex-col py-4">
                                             <div class="flex items-center justify-between">
                                                 <h2 class="text-xl font-bold">New in Store</h2>
                                                 <a href=""
                                                    class="mt-6 block font-medium px-10 py-3 text-base bg-black text-white rounded-md">Dancer</a>
                                             </div>
                                             <div class="py-6 relative">
-                                                <button id="category-scroll-left"
+                                                <button id="newarrivals-category-scroll-left"
                                                         class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 left-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                          fill="none"
@@ -297,7 +345,7 @@
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                                                     </svg>
                                                 </button>
-                                                <div id="category-scroll"
+                                                <div id="newarrivals-category-scroll"
                                                      class="flex items-left space-x-5 overflow-x-scroll no-scrollbar">
                                                     <a href="#"
                                                        class="flex flex-col justify-center items-center space-y-2 group/item">
@@ -372,7 +420,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="flex">
-                                                            <p class="font-bold text-base">Jeans and Trousers</p>
+                                                            <p class="font-bold text-base line-clamp-1">Jeans and Trousers</p>
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                  fill="none"
                                                                  viewBox="0 0 24 24"
@@ -468,7 +516,7 @@
                                                         </div>
                                                     </a>
                                                 </div>
-                                                <button id="category-scroll-right"
+                                                <button id="newarrivals-category-scroll-right"
                                                         class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 right-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                          fill="none"
@@ -614,14 +662,14 @@
                                      class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
                                 <div class="relative bg-white">
                                     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                        <div class="flex flex-col py-16">
+                                        <div class="flex flex-col py-4">
                                             <div class="flex items-center justify-between">
                                                 <h2 class="text-xl font-bold">New in Store</h2>
                                                 <a href=""
                                                    class="mt-6 block font-medium px-10 py-3 text-base bg-black text-white rounded-md">Dancer</a>
                                             </div>
                                             <div class="py-6 relative">
-                                                <button id="category-scroll-left"
+                                                <button id="sale-category-scroll-left"
                                                         class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 left-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                          fill="none"
@@ -632,7 +680,7 @@
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                                                     </svg>
                                                 </button>
-                                                <div id="category-scroll"
+                                                <div id="sale-category-scroll"
                                                      class="flex items-left space-x-5 overflow-x-scroll no-scrollbar">
                                                     <a href="#"
                                                        class="flex flex-col justify-center items-center space-y-2 group/item">
@@ -707,7 +755,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="flex">
-                                                            <p class="font-bold text-base">Jeans and Trousers</p>
+                                                            <p class="font-bold text-base line-clamp-1">Jeans and Trousers</p>
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                  fill="none"
                                                                  viewBox="0 0 24 24"
@@ -803,7 +851,7 @@
                                                         </div>
                                                     </a>
                                                 </div>
-                                                <button id="category-scroll-right"
+                                                <button id="sale-category-scroll-right"
                                                         class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 right-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                          fill="none"
@@ -832,11 +880,11 @@
             </nav>
         </header>
         <main>
-            <section>
-                <div class="flex items-left space-x-5 overflow-x-scroll no-scrollbar">
+            <section class="mx-auto max-w-7xl px-6">
+                <div class="flex items-left space-x-5 justify-left overflow-x-scroll">
                     <a href="#"
                        class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
                             <div class="w-full h-full rounded-full overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
                                      alt="Looks"
@@ -857,7 +905,7 @@
                     </a>
                     <a href="#"
                        class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
                             <div class="w-full h-full rounded-full overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
                                      alt="Looks"
@@ -878,7 +926,7 @@
                     </a>
                     <a href="#"
                        class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
                             <div class="w-full h-full rounded-full overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
                                      alt="Looks"
@@ -899,7 +947,7 @@
                     </a>
                     <a href="#"
                        class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
                             <div class="w-full h-full rounded-full overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
                                      alt="Looks"
@@ -907,7 +955,7 @@
                             </div>
                         </div>
                         <div class="flex">
-                            <p class="font-bold text-base">Jeans and Trousers</p>
+                            <p class="font-bold text-base line-clamp-1">Jeans and Trousers</p>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  fill="none"
                                  viewBox="0 0 24 24"
@@ -920,28 +968,7 @@
                     </a>
                     <a href="#"
                        class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
-                            <div class="w-full h-full rounded-full overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                     alt="Looks"
-                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <p class="font-bold text-base">Blouses</p>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
                             <div class="w-full h-full rounded-full overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
                                      alt="Looks"
@@ -962,7 +989,7 @@
                     </a>
                     <a href="#"
                        class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
                             <div class="w-full h-full rounded-full overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
                                      alt="Looks"
@@ -983,7 +1010,28 @@
                     </a>
                     <a href="#"
                        class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
+                            <div class="w-full h-full rounded-full overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                     alt="Looks"
+                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <p class="font-bold text-base">Blouses</p>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="#"
+                       class="flex flex-col justify-center items-center space-y-2 group/item">
+                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
                             <div class="w-full h-full rounded-full overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
                                      alt="Looks"

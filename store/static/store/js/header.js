@@ -3,10 +3,55 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!searchButton) return;
   searchButton.addEventListener("click", toggleSearch);
 
+  initHorizontalSlider(
+    "newarrivals-category-scroll",
+    "newarrivals-category-scroll-left",
+    "newarrivals-category-scroll-right",
+  );
+  initHorizontalSlider(
+    "sale-category-scroll",
+    "sale-category-scroll-left",
+    "sale-category-scroll-right",
+  );
+});
+
+document.addEventListener("click", (event) => {
+  // Close search when clicking outside
+  const searchContainer = document.getElementById("search-container");
+  const searchButton = event.target.closest("#search-toggle");
+  if (
+    !searchContainer.contains(event.target) &&
+    !searchButton &&
+    !searchContainer.classList.contains("hidden")
+  ) {
+    toggleSearch();
+  }
+});
+
+function toggleSearch() {
+  const searchContainer = document.getElementById("search-container");
+  const searchInput = document.getElementById("search-input");
+
+  if (searchContainer.classList.contains("hidden")) {
+    // Open it
+    searchContainer.classList.remove("hidden");
+    searchContainer.classList.add("animate-fade-in-down");
+
+    setTimeout(() => {
+      searchInput.focus();
+    }, 100);
+  } else {
+    // Close the search
+    searchContainer.classList.add("hidden");
+    searchContainer.classList.remove("animate-fade-in-down");
+  }
+}
+
+function initHorizontalSlider(containerId, leftBtnId, rightBtnId) {
   // Scroll functionality (one item at a time)
-  const scrollContainer = document.getElementById("category-scroll");
-  const leftScrollBtn = document.getElementById("category-scroll-left");
-  const rightScrollBtn = document.getElementById("category-scroll-right");
+  const scrollContainer = document.getElementById(containerId);
+  const leftScrollBtn = document.getElementById(leftBtnId);
+  const rightScrollBtn = document.getElementById(rightBtnId);
 
   const scrollAmount = 130; // approximately one item;
 
@@ -49,36 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Check on the resize of the window
   window.addEventListener("resize", updateScrollButtons);
-});
 
-document.addEventListener("click", (event) => {
-  // Close search when clicking outside
-  const searchContainer = document.getElementById("search-container");
-  const searchButton = event.target.closest("#search-toggle");
-  if (
-    !searchContainer.contains(event.target) &&
-    !searchButton &&
-    !searchContainer.classList.contains("hidden")
-  ) {
-    toggleSearch();
-  }
-});
-
-function toggleSearch() {
-  const searchContainer = document.getElementById("search-container");
-  const searchInput = document.getElementById("search-input");
-
-  if (searchContainer.classList.contains("hidden")) {
-    // Open it
-    searchContainer.classList.remove("hidden");
-    searchContainer.classList.add("animate-fade-in-down");
-
-    setTimeout(() => {
-      searchInput.focus();
-    }, 100);
-  } else {
-    // Close the search
-    searchContainer.classList.add("hidden");
-    searchContainer.classList.remove("animate-fade-in-down");
-  }
+  scrollContainer.scrollLeft = 1;
+  scrollContainer.scrollLeft = 0;
 }
