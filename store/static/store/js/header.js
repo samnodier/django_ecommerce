@@ -17,6 +17,38 @@ document.addEventListener("DOMContentLoaded", () => {
   rightScrollBtn.addEventListener("click", () => {
     scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
   });
+
+  // Check the status of scrollContainer and update the buttons
+  scrollContainer.addEventListener("scroll", updateScrollButtons);
+
+  // Create a function to check the scroll position of the categories in the navigation
+  function updateScrollButtons() {
+    // Create a tolerance to aid in comparison
+    const tolerance = 5;
+
+    // check left
+    if (scrollContainer.scrollLeft <= tolerance) {
+      leftScrollBtn.classList.add("invisible");
+    } else {
+      leftScrollBtn.classList.remove("invisible");
+    }
+
+    // Check right
+    if (
+      Math.ceil(scrollContainer.scrollLeft + scrollContainer.clientWidth) >=
+      scrollContainer.scrollWidth - tolerance
+    ) {
+      rightScrollBtn.classList.add("invisible");
+    } else {
+      rightScrollBtn.classList.remove("invisible");
+    }
+  }
+
+  // Initial check on page load
+  updateScrollButtons();
+
+  // Check on the resize of the window
+  window.addEventListener("resize", updateScrollButtons);
 });
 
 document.addEventListener("click", (event) => {
