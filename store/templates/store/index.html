@@ -19,14 +19,15 @@
     <body class="bg-gray-50 text-black leading-normal tracking-normal font-[Geist]">
         <el-dialog>
         <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
-            <el-dialog-backdrop class="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-closed:opacity-0"></el-dialog-backdrop>
-            <div tabindex="0" class="fixed inset-0 flex focus:ouline-none">
-                <el-dialog-panel class="relative flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-closed:-translate-x-full">
+            <el-dialog-backdrop command="close" commandfor="mobile-menu" class="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-closed:opacity-0 pointer-events-auto"></el-dialog-backdrop>
+            <div tabindex="0"
+                 class="fixed inset-0 flex focus:ouline-none pointer-events-none">
+                <el-dialog-panel class="relative z-20 flex w-full max-w-xs pointer-events-auto transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-closed:-translate-x-full">
                 <div class="flex px-4 pt-5 pb-2">
                     <button type="button"
                             command="close"
                             commandfor="mobile-menu"
-                            class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400">
+                            class="relative -m-2 inline-flex items-center cursor-pointer justify-center rounded-md p-2 text-gray-400">
                         <span class="absolute -inset-0.5"></span>
                         <span class="sr-only">Close menu</span>
                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -42,1035 +43,1305 @@
                 <!-- Links -->
                 <div class="relative mt-2 flex-1 px-4 sm:px-6">
                     <div class="py-2 border-b border-gray-100">
-                        <a href="#" class="flex items-center font-medium text-black">Home</a>
+                        <a href="#"
+                           class="flex items-center text-black py-2 text-base font-semibold">Home</a>
+                    </div>
+                    <div class="py-2 border-b border-gray-100">
+                        <button id="mobile-looks-toggle"
+                                class="w-full flex items-center justify-between cursor-pointer py-2 text-base font-semibold">
+                            <span>Looks</span>
+                            <svg id="mobile-looks-toggle-chevicon"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div id="mobile-looks-toggle-menu" class="hidden space-y-4 bg-2 pl-2">
+                            <div class="flex flex-col gap-x-8 py-4">
+                                <div class="flex flex-col text-base">
+                                    <ul role="list"
+                                        aria-labelledby="Looks"
+                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                        <li class="flex border-b border-gray-200 pb-2">
+                                            <a href="#" class="hover:text-gray-800">Festival Look</a>
+                                        </li>
+                                        <li class="flex border-b border-gray-200 pb-2">
+                                            <a href="#" class="hover:text-gray-800">Wedding Guest</a>
+                                        </li>
+                                        <li class="flex border-b border-gray-200 pb-2">
+                                            <a href="#" class="hover:text-gray-800">Feeling Green</a>
+                                        </li>
+                                        <li class="flex border-b border-gray-200 pb-2">
+                                            <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
+                                        </li>
+                                        <li class="flex border-b border-gray-200 pb-2">
+                                            <a href="#" class="hover:text-gray-800">Summer Proof</a>
+                                        </li>
+                                        <li class="flex border-b border-gray-200 pb-2">
+                                            <a href="#" class="hover:text-gray-800">Weeding Night</a>
+                                        </li>
+                                        <li class="flex border-b border-gray-200 pb-2">
+                                            <a href="#" class="hover:text-gray-800">Travel Chique</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col text-base">
+                                    <div class="text-base">
+                                        <a href="#"
+                                           class="relative mt-6 block rounded-lg font-medium text-gray-900 overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=711&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&auto=format&fit=crop&w=500&h=800"
+                                                 alt=""
+                                                 class="aspect-4/5 w-full bg-gray-100 object-cover group-hover:opacity-75" />
+                                            <div class="absolute inset-0 bg-black/20"></div>
+                                            <div class="absolute top-1/2 left-1/2 transform -translate-1/2 z-10 flex flex-col justify-center items-center">
+                                                <p class="font-bold text-white uppercase">Dancer</p>
+                                                <p aria-hidden="true"
+                                                   class="mt-1 bg-black text-white py-2 px-4 rounded-md hover:shadow-xl">
+                                                    Shop look
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="text-base">
+                                        <a href="#"
+                                           class="relative mt-6 block rounded-lg font-medium text-gray-900 overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=711&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&auto=format&fit=crop&w=500&h=800"
+                                                 alt=""
+                                                 class="aspect-4/5 w-full bg-gray-100 object-cover group-hover:opacity-75" />
+                                            <div class="absolute inset-0 bg-black/20"></div>
+                                            <div class="absolute top-1/2 left-1/2 transform -translate-1/2 z-10 flex flex-col justify-center items-center">
+                                                <p class="font-bold text-white uppercase">Dancer</p>
+                                                <p aria-hidden="true"
+                                                   class="mt-1 bg-black text-white py-2 px-4 rounded-md hover:shadow-xl">
+                                                    Shop look
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-2 border-b border-gray-100">
+                        <button id="mobile-newarrivals-toggle"
+                                class="w-full flex items-center justify-between cursor-pointer py-2 text-base font-semibold">
+                            <span>New Arrivals</span>
+                            <svg id="mobile-newarrivals-toggle-chevicon"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div id="mobile-newarrivals-toggle-menu"
+                             class="hidden space-y-4 bg-2 pl-2">
+                            <div class="flex flex-col space-y-4 py-4">
+                                <div class="flex flex-col text-lg">
+                                    <p class="font-bold text-black uppercase">Dancer</p>
+                                </div>
+                                <!-- Slider -->
+                                <div class="flex items-center justify-start space-x-5 overflow-x-scroll py-5">
+                                    <a href="#"
+                                       class="flex flex-col justify-center items-center space-y-2 group/item">
+                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                            <div class="w-full h-full rounded-full overflow-hidden">
+                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                     alt="Looks"
+                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <p class="font-bold text-base">Blouses</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 fill="none"
+                                                 viewBox="0 0 24 24"
+                                                 stroke-width="1.5"
+                                                 stroke="currentColor"
+                                                 class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a href="#"
+                                       class="flex flex-col justify-center items-center space-y-2 group/item">
+                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                            <div class="w-full h-full rounded-full overflow-hidden">
+                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                     alt="Looks"
+                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <p class="font-bold text-base">Cardigans</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 fill="none"
+                                                 viewBox="0 0 24 24"
+                                                 stroke-width="1.5"
+                                                 stroke="currentColor"
+                                                 class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a href="#"
+                                       class="flex flex-col justify-center items-center space-y-2 group/item">
+                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                            <div class="w-full h-full rounded-full overflow-hidden">
+                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                     alt="Looks"
+                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <p class="font-bold text-base">Jackets</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 fill="none"
+                                                 viewBox="0 0 24 24"
+                                                 stroke-width="1.5"
+                                                 stroke="currentColor"
+                                                 class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a href="#"
+                                       class="flex flex-col justify-center items-center space-y-2 group/item">
+                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                            <div class="w-full h-full rounded-full overflow-hidden">
+                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                     alt="Looks"
+                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <p class="font-bold text-base line-clamp-1">Jeans and Trousers</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 fill="none"
+                                                 viewBox="0 0 24 24"
+                                                 stroke-width="1.5"
+                                                 stroke="currentColor"
+                                                 class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a href="#"
+                                       class="flex flex-col justify-center items-center space-y-2 group/item">
+                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                            <div class="w-full h-full rounded-full overflow-hidden">
+                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                     alt="Looks"
+                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <p class="font-bold text-base">Blouses</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 fill="none"
+                                                 viewBox="0 0 24 24"
+                                                 stroke-width="1.5"
+                                                 stroke="currentColor"
+                                                 class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a href="#"
+                                       class="flex flex-col justify-center items-center space-y-2 group/item">
+                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                            <div class="w-full h-full rounded-full overflow-hidden">
+                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                     alt="Looks"
+                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <p class="font-bold text-base">Blouses</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 fill="none"
+                                                 viewBox="0 0 24 24"
+                                                 stroke-width="1.5"
+                                                 stroke="currentColor"
+                                                 class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a href="#"
+                                       class="flex flex-col justify-center items-center space-y-2 group/item">
+                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                            <div class="w-full h-full rounded-full overflow-hidden">
+                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                     alt="Looks"
+                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <p class="font-bold text-base">Blouses</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 fill="none"
+                                                 viewBox="0 0 24 24"
+                                                 stroke-width="1.5"
+                                                 stroke="currentColor"
+                                                 class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a href="#"
+                                       class="flex flex-col justify-center items-center space-y-2 group/item">
+                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                            <div class="w-full h-full rounded-full overflow-hidden">
+                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                     alt="Looks"
+                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <p class="font-bold text-base">Blouses</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 fill="none"
+                                                 viewBox="0 0 24 24"
+                                                 stroke-width="1.5"
+                                                 stroke="currentColor"
+                                                 class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="text-base">
+                                    <a href="#"
+                                       class="mt-1 bg-black text-white py-2 px-4 rounded-md hover:shadow-xl">
+                                        Shop look
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="py-2 mt-2 flex-1 px-4 sm:px-4"></div>
             </div>
-        </dialog>
-        </el-dialog>
-        <header class="relative">
-            <div class="flex mx-auto w-full bg-black text-white px-5">
-                <div class = "relative h-10 overflow-hidden flex-1">
-                    <ul class="relative h-full w-full">
-                        <li class="absolute top-0 left-0 flex items-center justify-left h-full w-full opacity-0 animate-slide-in [animation-delay:0s]">
-                            Pay within 30 days with<strong class="ml-1">Kalrna</strong>
-                        </li>
-                        <li class="absolute top-0 left-0 flex items-center justify-left h-full w-full opacity-0 animate-slide-in [animation-delay:5s]">
-                            Not satisfied?<strong class="ml-1">Money Back</strong>
-                        </li>
-                        <li class="absolute top-0 left-0 flex items-center justify-left h-full w-full opacity-0 animate-slide-in [animation-delay:10s]">
-                            <strong class="mr-1">30 day</strong>trial
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex items-center">
-                    <p>Sustainability commitments 🌱</p>
-                </div>
+            <div class="py-2 mt-2 flex-1 px-4 sm:px-4"></div>
+        </div>
+    </dialog>
+    </el-dialog>
+    <header class="relative">
+        <div class="flex mx-auto w-full bg-black text-white px-5">
+            <div class = "relative h-10 overflow-hidden flex-1">
+                <ul class="relative h-full w-full">
+                    <li class="absolute top-0 left-0 flex items-center justify-left h-full w-full opacity-0 animate-slide-in [animation-delay:0s]">
+                        Pay within 30 days with<strong class="ml-1">Kalrna</strong>
+                    </li>
+                    <li class="absolute top-0 left-0 flex items-center justify-left h-full w-full opacity-0 animate-slide-in [animation-delay:5s]">
+                        Not satisfied?<strong class="ml-1">Money Back</strong>
+                    </li>
+                    <li class="absolute top-0 left-0 flex items-center justify-left h-full w-full opacity-0 animate-slide-in [animation-delay:10s]">
+                        <strong class="mr-1">30 day</strong>trial
+                    </li>
+                </ul>
             </div>
-            <nav aria-label="Top" class="mx-auto max-w-7xl py-2">
-                <div class="flex w-full py-2 px-4 sm:px-6 lg:px-8 justify-between border-b-2 border-gray-200">
+            <div class="flex items-center">
+                <p>Sustainability commitments 🌱</p>
+            </div>
+        </div>
+        <nav aria-label="Top" class="mx-auto max-w-7xl py-2">
+            <div class="flex w-full py-2 px-4 sm:px-6 lg:px-8 justify-between border-b-2 border-gray-200">
+                <div class="flex items-center justify-center">
+                    <button type="button"
+                            command="show-modal"
+                            commandfor="mobile-menu"
+                            class="relative inline-flex cursor-pointer items-center justify-center rounded-md p-2 text-gray-400 lg:hidden">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Open menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                    <div>
+                        <h1 class="text-2xl font-bold">PeakStore</h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-5">
+                    <!-- Search -->
+                    <div class="flex lg:ml-6">
+                        <button id="search-toggle" class="p-2 text-gray-400 hover:text-gray-500">
+                            <span class="sr-only">Search</span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Switch currency -->
+                    <div class="relative group">
+                        <button class="flex items-center text-sm font-semibold focus:outline-none hover:text-gray-300 transition-colors">
+                            <span>🇬🇧 GBP £</span>
+                            <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <!-- Invisible buffer bridge to prevent menu closing when moving mouse from button to menu -->
+                        <div class="absolute right-0 top-full h-2 w-full"></div>
+                        <!-- Actual Menu -->
+                        <ul class="absolute right-0 top-[calc(100%+0.5rem)] w-32 bg-white text-black rounded shadow-lg overflow-hidden transform scale-95 opacity-0 invisible group-hover:scale-100 group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-right z-50">
+                            <li>
+                                <a href="#"
+                                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between">
+                                    <span>🇺🇸 USD</span>
+                                    <span class="text-gray-400">$</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between">
+                                    <span>🇪🇺 EUR</span>
+                                    <span class="text-gray-400">€</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between font-bold bg-gray-50">
+                                    <span>🇬🇧 GBP</span>
+                                    <span class="text-gray-400">£</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Login -->
                     <div class="flex items-center justify-center">
-                        <button type="button"
-                                command="show-modal"
-                                commandfor="mobile-menu"
-                                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 lg:hidden">
-                            <span class="absolute -inset-0.5"></span>
-                            <span class="sr-only">Open menu</span>
+                        <a href="/login" class="">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  fill="none"
                                  viewBox="0 0 24 24"
                                  stroke-width="1.5"
                                  stroke="currentColor"
                                  class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                             </svg>
-                        </button>
-                        <div>
-                            <h1 class="text-2xl font-bold">PeakStore</h1>
-                        </div>
+                        </a>
                     </div>
-                    <div class="flex items-center space-x-5">
-                        <!-- Search -->
-                        <div class="flex lg:ml-6">
-                            <button id="search-toggle" class="p-2 text-gray-400 hover:text-gray-500">
-                                <span class="sr-only">Search</span>
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     fill="none"
-                                     viewBox="0 0 24 24"
-                                     stroke-width="1.5"
-                                     stroke="currentColor"
-                                     class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                                </svg>
-                            </button>
-                        </div>
-                        <!-- Switch currency -->
-                        <div class="relative group">
-                            <button class="flex items-center text-sm font-semibold focus:outline-none hover:text-gray-300 transition-colors">
-                                <span>🇬🇧 GBP £</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                            <!-- Dropdown Menu -->
-                            <!-- Invisible buffer bridge to prevent menu closing when moving mouse from button to menu -->
-                            <div class="absolute right-0 top-full h-2 w-full"></div>
-                            <!-- Actual Menu -->
-                            <ul class="absolute right-0 top-[calc(100%+0.5rem)] w-32 bg-white text-black rounded shadow-lg overflow-hidden transform scale-95 opacity-0 invisible group-hover:scale-100 group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-right z-50">
-                                <li>
-                                    <a href="#"
-                                       class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between">
-                                        <span>🇺🇸 USD</span>
-                                        <span class="text-gray-400">$</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                       class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between">
-                                        <span>🇪🇺 EUR</span>
-                                        <span class="text-gray-400">€</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                       class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between font-bold bg-gray-50">
-                                        <span>🇬🇧 GBP</span>
-                                        <span class="text-gray-400">£</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Login -->
-                        <div class="flex items-center justify-center">
-                            <a href="/login" class="">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     fill="none"
-                                     viewBox="0 0 24 24"
-                                     stroke-width="1.5"
-                                     stroke="currentColor"
-                                     class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                                </svg>
-                            </a>
-                        </div>
-                        <!-- Cart -->
-                        <div class="">
-                            <a href="/cart" class="group -m-2 flex items-center p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     fill="none"
-                                     viewBox="0 0 24 24"
-                                     stroke-width="1.5"
-                                     stroke="currentColor"
-                                     class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                                </svg>
-                                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                                <span class="sr-only">items in cart, view bag</span>
-                            </a>
-                        </div>
+                    <!-- Cart -->
+                    <div class="">
+                        <a href="/cart" class="group -m-2 flex items-center p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                            </svg>
+                            <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                            <span class="sr-only">items in cart, view bag</span>
+                        </a>
                     </div>
                 </div>
-                <!-- Search Bar -->
-                <div id="search-container"
-                     class="absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg hidden overflow-hidden transition-all duration-300">
-                    <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
-                        <form action="/search" class="relative">
-                            <input type="text"
-                                   id="search-input"
-                                   placeholder="Search for products..."
-                                   class="w-full text-xl md:text-2xl font-medium text-gray-900 placeholder-gray-400 border-none focus:ring-0 focus:outline-none bg-transparent pb-2 border-b-2 border-gray-100 focus:border-black transition-colors">
-                            <button type="submit"
-                                    class="absolute right-0 top-0 text-gray-400 hover:text-black transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     fill="none"
-                                     viewBox="0 0 24 24"
-                                     stroke-width="1.5"
-                                     stroke="currentColor"
-                                     class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                                </svg>
-                            </button>
-                            <!-- Quick links -->
-                            <div class="mt-4 text-sm text-gray-500">
-                                <span class="mr-2">Popular:</span>
-                                <a href="#" class="underline hover:text-black mr-2">Jackets</a>
-                                <a href="#" class="underline hover:text-black mr-2">Backpacks</a>
-                                <a href="#" class="underline hover:text-black">Shirts</a>
-                            </div>
-                        </form>
-                        <!-- Close button -->
-                        <button onclick="toggleSearch()"
-                                class="absolute top-4 right-4 text-gray-400 hover:text-black md:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="py-2 px-4 sm:px-6 lg:px-8 border-b-2 border-gray-200">
-                    <div class="flex h-9 items-center">
-                        <el-popover-group class="group/popover-group hidden lg:block lg:self-stretch">
-                        <div class="flex h-full space-x-4">
-                            <a href="#" class="flex items-center font-medium text-black">Home</a>
-                            <div class="group/popover flex">
-                                <div class="relative flex">
-                                    <button popovertarget="desktop-menu-looks"
-                                            class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
-                                        Looks
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             fill="none"
-                                             viewBox="0 0 24 24"
-                                             stroke-width="1.5"
-                                             stroke="currentColor"
-                                             class="size-4.5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                        <span aria-hidden="true"
-                                              class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
-                                    </button>
-                                </div>
-                                <el-popover id="desktop-menu-looks" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
-                                <div aria-hidden="true"
-                                     class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
-                                <div class="relative bg-white">
-                                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                        <div class="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
-                                            <div class="col-start-2 grid grid-cols-2 gap-x-8">
-                                                <div class="group relative text-base sm:text-sm">
-                                                    <img src=""
-                                                         alt=""
-                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
-                                                    <a href="" class="mt-6 block font-medium text-gray-900">
-                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
-                                                        Dancer
-                                                    </a>
-                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
-                                                </div>
-                                                <div class="group relative text-base sm:text-sm">
-                                                    <img src=""
-                                                         alt=""
-                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
-                                                    <a href="" class="mt-6 block font-medium text-gray-900">
-                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
-                                                        Dancer
-                                                    </a>
-                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
-                                                </div>
-                                            </div>
-                                            <div class="row-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm">
-                                                <div>
-                                                    <ul role="list"
-                                                        aria-labelledby="Looks"
-                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Festival Look</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Wedding Guest</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Feeling Green</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Summer Proof</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Weeding Night</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div>
-                                                    <ul role="list"
-                                                        aria-labelledby="Looks"
-                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Travel Chique</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </el-popover>
-                            </div>
-                            <div class="group/popover flex">
-                                <div class="relative flex">
-                                    <button popovertarget="desktop-menu-newarrivals"
-                                            class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
-                                        New Arrivals
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             fill="none"
-                                             viewBox="0 0 24 24"
-                                             stroke-width="1.5"
-                                             stroke="currentColor"
-                                             class="size-4.5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                        <span aria-hidden="true"
-                                              class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
-                                    </button>
-                                </div>
-                                <el-popover id="desktop-menu-newarrivals" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
-                                <div aria-hidden="true"
-                                     class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
-                                <div class="relative bg-white">
-                                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                        <div class="flex flex-col py-4">
-                                            <div class="flex items-center justify-between">
-                                                <h2 class="text-xl font-bold">New in Store</h2>
-                                                <a href=""
-                                                   class="mt-6 block font-medium px-10 py-3 text-base bg-black text-white rounded-md">Dancer</a>
-                                            </div>
-                                            <div class="py-6 relative">
-                                                <button id="newarrivals-category-scroll-left"
-                                                        class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 left-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                         fill="none"
-                                                         viewBox="0 0 24 24"
-                                                         stroke-width="1.5"
-                                                         stroke="currentColor"
-                                                         class="size-6">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                                                    </svg>
-                                                </button>
-                                                <div id="newarrivals-category-scroll"
-                                                     class="flex items-left space-x-5 overflow-x-scroll no-scrollbar">
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Blouses</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Cardigans</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Jackets</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base line-clamp-1">Jeans and Trousers</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Blouses</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Blouses</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Blouses</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Blouses</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <button id="newarrivals-category-scroll-right"
-                                                        class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 right-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                         fill="none"
-                                                         viewBox="0 0 24 24"
-                                                         stroke-width="1.5"
-                                                         stroke="currentColor"
-                                                         class="size-6">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="group/popover flex">
-                                <div class="relative flex">
-                                    <button popovertarget="desktop-menu-shop"
-                                            class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
-                                        Shop
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             fill="none"
-                                             viewBox="0 0 24 24"
-                                             stroke-width="1.5"
-                                             stroke="currentColor"
-                                             class="size-4.5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                        <span aria-hidden="true"
-                                              class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
-                                    </button>
-                                </div>
-                                <el-popover id="desktop-menu-shop" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
-                                <div aria-hidden="true"
-                                     class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
-                                <div class="relative bg-white">
-                                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                        <div class="grid grid-cols-3 gap-x-8 gap-y-10 py-16">
-                                            <div class="col-start-3 grid gap-x-8">
-                                                <div class="group relative text-base sm:text-sm">
-                                                    <img src=""
-                                                         alt=""
-                                                         class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
-                                                    <a href="" class="mt-6 block font-medium text-gray-900">
-                                                        <span aria-hidden="true" class="absolute inset-0 z-10"></span>
-                                                        Dancer
-                                                    </a>
-                                                    <p aria-hidden="true" class="mt-1">Shop Now</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-start-1 row-start-1 grid grid-cols-4 col-span-2 gap-x-8 gap-y-10 text-sm">
-                                                <div>
-                                                    <ul role="list"
-                                                        aria-labelledby="Looks"
-                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Festival Look</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Wedding Guest</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Feeling Green</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div>
-                                                    <ul role="list"
-                                                        aria-labelledby="Looks"
-                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Travel Chique</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Summer Proof</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Weeding Night</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div>
-                                                    <ul role="list"
-                                                        aria-labelledby="Looks"
-                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Festival Look</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Wedding Guest</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Feeling Green</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div>
-                                                    <ul role="list"
-                                                        aria-labelledby="Looks"
-                                                        class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Travel Chique</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Summer Proof</a>
-                                                        </li>
-                                                        <li class="flex">
-                                                            <a href="#" class="hover:text-gray-800">Weeding Night</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </el-popover>
-                            </div>
-                            <div class="group/popover flex">
-                                <div class="relative flex">
-                                    <button popovertarget="desktop-menu-sale"
-                                            class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
-                                        Sale
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             fill="none"
-                                             viewBox="0 0 24 24"
-                                             stroke-width="1.5"
-                                             stroke="currentColor"
-                                             class="size-4.5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                        <span aria-hidden="true"
-                                              class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
-                                    </button>
-                                </div>
-                                <el-popover id="desktop-menu-sale" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
-                                <div aria-hidden="true"
-                                     class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
-                                <div class="relative bg-white">
-                                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                        <div class="flex flex-col py-4">
-                                            <div class="flex items-center justify-between">
-                                                <h2 class="text-xl font-bold">New in Store</h2>
-                                                <a href=""
-                                                   class="mt-6 block font-medium px-10 py-3 text-base bg-black text-white rounded-md">Dancer</a>
-                                            </div>
-                                            <div class="py-6 relative">
-                                                <button id="sale-category-scroll-left"
-                                                        class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 left-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                         fill="none"
-                                                         viewBox="0 0 24 24"
-                                                         stroke-width="1.5"
-                                                         stroke="currentColor"
-                                                         class="size-6">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                                                    </svg>
-                                                </button>
-                                                <div id="sale-category-scroll"
-                                                     class="flex items-left space-x-5 overflow-x-scroll no-scrollbar">
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Blouses</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Cardigans</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Jackets</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base line-clamp-1">Jeans and Trousers</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Blouses</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Blouses</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Blouses</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#"
-                                                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                                                        <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
-                                                            <div class="w-full h-full rounded-full overflow-hidden">
-                                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                                                     alt="Looks"
-                                                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="flex">
-                                                            <p class="font-bold text-base">Blouses</p>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 fill="none"
-                                                                 viewBox="0 0 24 24"
-                                                                 stroke-width="1.5"
-                                                                 stroke="currentColor"
-                                                                 class="size-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                                            </svg>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <button id="sale-category-scroll-right"
-                                                        class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 right-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                         fill="none"
-                                                         viewBox="0 0 24 24"
-                                                         stroke-width="1.5"
-                                                         stroke="currentColor"
-                                                         class="size-6">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </el-popover>
-                            </div>
-                            <a href="#" class="flex items-center font-medium text-black">About Us</a>
-                            <a href="#" class="flex items-center font-medium text-black">Stories</a>
-                            <a href="#" class="flex items-center font-medium text-black">Events</a>
-                            <a href="#" class="flex items-center font-medium text-black">Campaigns</a>
-                            <a href="#" class="flex items-center font-medium text-black">Contact</a>
-                        </div>
-                        </el-popover-group>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <section class="mx-auto max-w-7xl px-6">
-                <div class="flex items-left space-x-5 justify-left overflow-x-scroll">
-                    <a href="#"
-                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
-                            <div class="w-full h-full rounded-full overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                     alt="Looks"
-                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <p class="font-bold text-base">Blouses</p>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
-                            <div class="w-full h-full rounded-full overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                     alt="Looks"
-                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <p class="font-bold text-base">Cardigans</p>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
-                            <div class="w-full h-full rounded-full overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                     alt="Looks"
-                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <p class="font-bold text-base">Jackets</p>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
-                            <div class="w-full h-full rounded-full overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                     alt="Looks"
-                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <p class="font-bold text-base line-clamp-1">Jeans and Trousers</p>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
-                            <div class="w-full h-full rounded-full overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                     alt="Looks"
-                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <p class="font-bold text-base">Blouses</p>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
-                            <div class="w-full h-full rounded-full overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                     alt="Looks"
-                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <p class="font-bold text-base">Blouses</p>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
-                            <div class="w-full h-full rounded-full overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                     alt="Looks"
-                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <p class="font-bold text-base">Blouses</p>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col justify-center items-center space-y-2 group/item">
-                        <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
-                            <div class="w-full h-full rounded-full overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
-                                     alt="Looks"
-                                     class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <p class="font-bold text-base">Blouses</p>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke-width="1.5"
-                                 stroke="currentColor"
-                                 class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </section>
-            <div class="container mx-auto">
-                <section class="flex items-center justify-center h-screen">
-                    <h1 class="text-5xl">Django + Tailwind = ❤️</h1>
-                    {% load static %}
-                    {% if featured_products %}
-                        <div>
-                            {% for product in featured_products %}
-                                <div>
-                                    <h2>{{ product.name }} s</h2>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </section>
             </div>
-        </main>
-        {% block scripts %}
-            <script src="{% static 'store/js/header.js' %}"></script>
-        {% endblock %}
-    </body>
+            <!-- Search Bar -->
+            <div id="search-container"
+                 class="absolute top-full z-20 left-0 w-full bg-white border-b border-gray-200 shadow-lg hidden overflow-hidden transition-all duration-300">
+                <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
+                    <form action="/search" class="relative">
+                        <input type="text"
+                               id="search-input"
+                               placeholder="Search for products..."
+                               class="w-full text-xl md:text-2xl font-medium text-gray-900 placeholder-gray-400 border-none focus:ring-0 focus:outline-none bg-transparent pb-2 border-b-2 border-gray-100 focus:border-black transition-colors">
+                        <button type="submit"
+                                class="absolute right-0 top-0 text-gray-400 hover:text-black transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </button>
+                        <!-- Quick links -->
+                        <div class="mt-4 text-sm text-gray-500">
+                            <span class="mr-2">Popular:</span>
+                            <a href="#" class="underline hover:text-black mr-2">Jackets</a>
+                            <a href="#" class="underline hover:text-black mr-2">Backpacks</a>
+                            <a href="#" class="underline hover:text-black">Shirts</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="py-2 px-4 sm:px-6 lg:px-8 border-b-2 border-gray-200">
+                <div class="flex h-9 items-center">
+                    <el-popover-group class="group/popover-group hidden lg:block lg:self-stretch">
+                    <div class="flex h-full space-x-4">
+                        <a href="#" class="flex items-center font-medium text-black">Home</a>
+                        <div class="group/popover flex">
+                            <div class="relative flex">
+                                <button popovertarget="desktop-menu-looks"
+                                        class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
+                                    Looks
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke-width="1.5"
+                                         stroke="currentColor"
+                                         class="size-4.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                    <span aria-hidden="true"
+                                          class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
+                                </button>
+                            </div>
+                            <el-popover id="desktop-menu-looks" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
+                            <div aria-hidden="true"
+                                 class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
+                            <div class="relative bg-white">
+                                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                                    <div class="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
+                                        <div class="col-start-2 grid grid-cols-2 gap-x-8">
+                                            <div class="group relative text-base sm:text-sm">
+                                                <img src=""
+                                                     alt=""
+                                                     class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                <a href="" class="mt-6 block font-medium text-gray-900">
+                                                    <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                    Dancer
+                                                </a>
+                                                <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                            </div>
+                                            <div class="group relative text-base sm:text-sm">
+                                                <img src=""
+                                                     alt=""
+                                                     class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                <a href="" class="mt-6 block font-medium text-gray-900">
+                                                    <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                    Dancer
+                                                </a>
+                                                <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                            </div>
+                                        </div>
+                                        <div class="row-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm">
+                                            <div>
+                                                <ul role="list"
+                                                    aria-labelledby="Looks"
+                                                    class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Festival Look</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Wedding Guest</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Feeling Green</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Summer Proof</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Weeding Night</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <ul role="list"
+                                                    aria-labelledby="Looks"
+                                                    class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Travel Chique</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </el-popover>
+                        </div>
+                        <div class="group/popover flex">
+                            <div class="relative flex">
+                                <button popovertarget="desktop-menu-newarrivals"
+                                        class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
+                                    New Arrivals
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke-width="1.5"
+                                         stroke="currentColor"
+                                         class="size-4.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                    <span aria-hidden="true"
+                                          class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
+                                </button>
+                            </div>
+                            <el-popover id="desktop-menu-newarrivals" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
+                            <div aria-hidden="true"
+                                 class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
+                            <div class="relative bg-white">
+                                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                                    <div class="flex flex-col py-4">
+                                        <div class="flex items-center justify-between">
+                                            <h2 class="text-xl font-bold">New in Store</h2>
+                                            <a href=""
+                                               class="mt-6 block font-medium px-10 py-3 text-base bg-black text-white rounded-md">Dancer</a>
+                                        </div>
+                                        <div class="py-6 relative">
+                                            <button id="newarrivals-category-scroll-left"
+                                                    class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 left-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     fill="none"
+                                                     viewBox="0 0 24 24"
+                                                     stroke-width="1.5"
+                                                     stroke="currentColor"
+                                                     class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                                                </svg>
+                                            </button>
+                                            <div id="newarrivals-category-scroll"
+                                                 class="flex items-left space-x-5 overflow-x-scroll no-scrollbar">
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Blouses</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Cardigans</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Jackets</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base line-clamp-1">Jeans and Trousers</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Blouses</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Blouses</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Blouses</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[130px] h-[130px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Blouses</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <button id="newarrivals-category-scroll-right"
+                                                    class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 right-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     fill="none"
+                                                     viewBox="0 0 24 24"
+                                                     stroke-width="1.5"
+                                                     stroke="currentColor"
+                                                     class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group/popover flex">
+                            <div class="relative flex">
+                                <button popovertarget="desktop-menu-shop"
+                                        class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
+                                    Shop
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke-width="1.5"
+                                         stroke="currentColor"
+                                         class="size-4.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                    <span aria-hidden="true"
+                                          class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
+                                </button>
+                            </div>
+                            <el-popover id="desktop-menu-shop" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
+                            <div aria-hidden="true"
+                                 class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
+                            <div class="relative bg-white">
+                                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                                    <div class="grid grid-cols-3 gap-x-8 gap-y-10 py-16">
+                                        <div class="col-start-3 grid gap-x-8">
+                                            <div class="group relative text-base sm:text-sm">
+                                                <img src=""
+                                                     alt=""
+                                                     class="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75" />
+                                                <a href="" class="mt-6 block font-medium text-gray-900">
+                                                    <span aria-hidden="true" class="absolute inset-0 z-10"></span>
+                                                    Dancer
+                                                </a>
+                                                <p aria-hidden="true" class="mt-1">Shop Now</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-start-1 row-start-1 grid grid-cols-4 col-span-2 gap-x-8 gap-y-10 text-sm">
+                                            <div>
+                                                <ul role="list"
+                                                    aria-labelledby="Looks"
+                                                    class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Festival Look</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Wedding Guest</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Feeling Green</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <ul role="list"
+                                                    aria-labelledby="Looks"
+                                                    class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Travel Chique</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Summer Proof</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Weeding Night</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <ul role="list"
+                                                    aria-labelledby="Looks"
+                                                    class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Festival Look</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Wedding Guest</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Feeling Green</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Tenue de Ville</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <ul role="list"
+                                                    aria-labelledby="Looks"
+                                                    class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Travel Chique</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Summer Proof</a>
+                                                    </li>
+                                                    <li class="flex">
+                                                        <a href="#" class="hover:text-gray-800">Weeding Night</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </el-popover>
+                        </div>
+                        <div class="group/popover flex">
+                            <div class="relative flex">
+                                <button popovertarget="desktop-menu-sale"
+                                        class="relative flex items-center justify-center font-medium transition-colors duration-200 ease-out group-not-has-open/popover:text-gray-700 group-has-open/popover:text-indigo-600 group-not-has-open/popover:hover:text-gray-800">
+                                    Sale
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke-width="1.5"
+                                         stroke="currentColor"
+                                         class="size-4.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                    <span aria-hidden="true"
+                                          class="absolute inset-x-0 -bottom-px z-30 h-0.5 bg-transparent duration-200 ease-in group-has-open/popover:bg-red-500 group-has-open/popover-group:duration-150 group-has-open/popover-group:ease-out"></span>
+                                </button>
+                            </div>
+                            <el-popover id="desktop-menu-sale" anchor="bottom" popover class="absolute top-40 w-full overflow-visible bg-white text-sm text-gray-500 transition transition-discrete [--anchor-gap:1px] backdrop:bg-transparent open:block data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
+                            <div aria-hidden="true"
+                                 class="absolute inset-0 top-1/2 bg-white shadow-sm"></div>
+                            <div class="relative bg-white">
+                                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                                    <div class="flex flex-col py-4">
+                                        <div class="flex items-center justify-between">
+                                            <h2 class="text-xl font-bold">New in Store</h2>
+                                            <a href=""
+                                               class="mt-6 block font-medium px-10 py-3 text-base bg-black text-white rounded-md">Dancer</a>
+                                        </div>
+                                        <div class="py-6 relative">
+                                            <button id="sale-category-scroll-left"
+                                                    class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 left-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     fill="none"
+                                                     viewBox="0 0 24 24"
+                                                     stroke-width="1.5"
+                                                     stroke="currentColor"
+                                                     class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                                                </svg>
+                                            </button>
+                                            <div id="sale-category-scroll"
+                                                 class="flex items-left space-x-5 overflow-x-scroll no-scrollbar">
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Blouses</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Cardigans</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Jackets</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base line-clamp-1">Jeans and Trousers</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Blouses</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Blouses</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Blouses</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#"
+                                                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                                                    <div class="relative w-[170px] h-[170px] flex flex-col rounded-full">
+                                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                                                 alt="Looks"
+                                                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex">
+                                                        <p class="font-bold text-base">Blouses</p>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                             fill="none"
+                                                             viewBox="0 0 24 24"
+                                                             stroke-width="1.5"
+                                                             stroke="currentColor"
+                                                             class="size-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <button id="sale-category-scroll-right"
+                                                    class="flex items-center justify-center w-[50px] h-[50px] absolute z-10 right-0 top-1/2 transform -translate-y-1/2 cursor-pointer bg-gray-200 rounded-full ">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     fill="none"
+                                                     viewBox="0 0 24 24"
+                                                     stroke-width="1.5"
+                                                     stroke="currentColor"
+                                                     class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </el-popover>
+                        </div>
+                        <a href="#" class="flex items-center font-medium text-black">About Us</a>
+                        <a href="#" class="flex items-center font-medium text-black">Stories</a>
+                        <a href="#" class="flex items-center font-medium text-black">Events</a>
+                        <a href="#" class="flex items-center font-medium text-black">Campaigns</a>
+                        <a href="#" class="flex items-center font-medium text-black">Contact</a>
+                    </div>
+                    </el-popover-group>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="mx-auto max-w-7xl px-6">
+            <div class="flex items-left space-x-5 justify-left overflow-x-scroll">
+                <a href="#"
+                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                    <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
+                        <div class="w-full h-full rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                 alt="Looks"
+                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <p class="font-bold text-base">Blouses</p>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="#"
+                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                    <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
+                        <div class="w-full h-full rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                 alt="Looks"
+                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <p class="font-bold text-base">Cardigans</p>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="#"
+                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                    <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
+                        <div class="w-full h-full rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                 alt="Looks"
+                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <p class="font-bold text-base">Jackets</p>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="#"
+                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                    <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
+                        <div class="w-full h-full rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                 alt="Looks"
+                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <p class="font-bold text-base line-clamp-1">Jeans and Trousers</p>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="#"
+                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                    <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
+                        <div class="w-full h-full rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                 alt="Looks"
+                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <p class="font-bold text-base">Blouses</p>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="#"
+                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                    <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
+                        <div class="w-full h-full rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                 alt="Looks"
+                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <p class="font-bold text-base">Blouses</p>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="#"
+                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                    <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
+                        <div class="w-full h-full rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                 alt="Looks"
+                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <p class="font-bold text-base">Blouses</p>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="#"
+                   class="flex flex-col justify-center items-center space-y-2 group/item">
+                    <div class="relative w-[140px] h-[140px] flex flex-col rounded-full">
+                        <div class="w-full h-full rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA&w=500&h=500"
+                                 alt="Looks"
+                                 class="w-full h-full object-cover group-hover/item:scale-100 transition-transform duration-500" />
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <p class="font-bold text-base">Blouses</p>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <div class="container mx-auto">
+            <section class="flex items-center justify-center h-screen">
+                <h1 class="text-5xl">Django + Tailwind = ❤️</h1>
+                {% load static %}
+                {% if featured_products %}
+                    <div>
+                        {% for product in featured_products %}
+                            <div>
+                                <h2>{{ product.name }} s</h2>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </section>
+        </div>
+    </main>
+    {% block scripts %}
+        <script src="{% static 'store/js/header.js' %}"></script>
+    {% endblock %}
+</body>
 </html>
